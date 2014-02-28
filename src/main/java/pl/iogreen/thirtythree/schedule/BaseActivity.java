@@ -22,8 +22,8 @@ import roboguice.inject.InjectView;
 @ContentView(R.layout.drawer)
 public class BaseActivity extends RoboActivity {
 
-    @InjectView(R.id.drawer_layout) DrawerLayout drawerLayout;
-    @InjectView(R.id.left_drawer) ListView menuList;
+    @InjectView(R.id.drawer_layout) DrawerLayout drawer;
+    @InjectView(R.id.left_drawer) ListView drawerList;
 
     private String[] menuItems = {"Sessions", "Speakers", "My Sessions"};
 
@@ -32,15 +32,12 @@ public class BaseActivity extends RoboActivity {
         super.onCreate(savedInstanceState);
 
         final FragmentManager fragmentManager = getFragmentManager();
-        Fragment fragment = new WelcomeFragment();
         fragmentManager.beginTransaction()
-                .replace(R.id.content_frame, fragment)
+                .replace(R.id.content_frame, new WelcomeFragment())
                 .commit();
 
-        menuList.setAdapter(new ArrayAdapter<>(this, R.layout.drawer_list_item, menuItems));
-        menuList.setOnItemClickListener(new DrawerItemSelectedListener());
-
-
+        drawerList.setAdapter(new ArrayAdapter<>(this, R.layout.drawer_list_item, menuItems));
+        drawerList.setOnItemClickListener(new DrawerItemSelectedListener());
     }
 
     private class DrawerItemSelectedListener implements AdapterView.OnItemClickListener {
@@ -68,7 +65,7 @@ public class BaseActivity extends RoboActivity {
                     .replace(R.id.content_frame, fragment)
                     .commit();
 
-            drawerLayout.closeDrawer(menuList);
+            drawer.closeDrawer(drawerList);
         }
     }
 }
