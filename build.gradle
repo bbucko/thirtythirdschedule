@@ -1,0 +1,72 @@
+group = 'pl.iogreen.thirtythree.schedule'
+version = '0.0.1-SNAPSHOT'
+
+buildscript {
+    ext.kotlin_version = '0.6.1910'
+    repositories {
+        mavenCentral()
+        mavenLocal()
+    }
+    dependencies {
+        classpath 'com.android.tools.build:gradle:0.8.+'
+        classpath 'com.github.jcandksolutions.gradle:android-unit-test:1.0.+'
+        classpath "org.jetbrains.kotlin:kotlin-gradle-plugin:$ext.kotlin_version"
+    }
+}
+
+repositories {
+    mavenCentral()
+    maven {
+        url 'http://oss.sonatype.org/content/repositories/snapshots'
+    }
+}
+
+apply plugin: 'android'
+apply plugin: 'kotlin-android'
+
+android {
+    buildToolsVersion '19.0.2'
+    compileSdkVersion 'android-16'
+
+    defaultConfig {
+        packageName 'pl.iogreen.thirtythree.schedule'
+    }
+
+    buildTypes {
+        release {
+            runProguard false
+            proguardFile getDefaultProguardFile('proguard-android.txt')
+        }
+    }
+
+    sourceSets {
+        main {
+            java.srcDirs += 'src/main/kotlin'
+        }
+    }
+
+    compileOptions {
+        encoding 'UTF-8'
+        sourceCompatibility JavaVersion.VERSION_1_7
+        targetCompatibility JavaVersion.VERSION_1_7
+    }
+
+}
+
+apply plugin: 'android-unit-test'
+
+dependencies {
+    compile 'org.roboguice:roboguice:3.0b-experimental'
+    compile "org.jetbrains.kotlin:kotlin-stdlib:$ext.kotlin_version"
+    compile 'com.android.support:support-v13:19.0.+'
+
+    testCompile 'junit:junit:4.+'
+    testCompile 'org.robolectric:robolectric:2.2'
+    testCompile 'com.squareup:fest-android:1.0.+'
+    testCompile 'org.mockito:mockito-core:1.9.+'
+
+    instrumentTestCompile 'junit:junit:4.+'
+    instrumentTestCompile 'org.robolectric:robolectric:2.2'
+    instrumentTestCompile 'com.squareup:fest-android:1.0.+'
+    instrumentTestCompile 'org.mockito:mockito-core:1.9.+'
+}
