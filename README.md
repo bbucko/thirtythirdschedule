@@ -1,4 +1,4 @@
-calindroid
+ThirtyThird Schedule
 ==========
 
-Android app for searching Calibre DB.
+Android app for 33rd Degree schedule
