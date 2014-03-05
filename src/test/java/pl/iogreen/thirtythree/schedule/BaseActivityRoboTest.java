@@ -16,7 +16,7 @@ import roboguice.RoboGuice;
 @RunWith(RobolectricTestRunner.class)
 public class BaseActivityRoboTest {
 
-    private BaseActivity injectedActivity;
+    private WelcomeActivityWithDrawer injectedActivity;
 //    private TextView injectedTextView;
 //    private Button button;
     private SomeService someServiceMock = Mockito.mock(SomeService.class);
@@ -25,7 +25,7 @@ public class BaseActivityRoboTest {
     public void setUp() {
         RoboGuice.setBaseApplicationInjector(Robolectric.application, RoboGuice.DEFAULT_STAGE, Modules.override(RoboGuice.newDefaultRoboModule(Robolectric.application)).with(new MyTestModule()));
 
-        injectedActivity = Robolectric.buildActivity(BaseActivity.class).create().get();
+        injectedActivity = Robolectric.buildActivity(WelcomeActivityWithDrawer.class).create().get();
 //        injectedTextView = (TextView) injectedActivity.findViewById(R.id.someLabel);
 //        button = (Button) injectedActivity.findViewById(R.id.button);
     }

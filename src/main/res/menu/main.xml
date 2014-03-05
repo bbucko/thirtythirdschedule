@@ -1,0 +1,17 @@
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+    <item
+        android:id="@+id/action_search"
+        android:icon="@drawable/action_search"
+        android:title="@string/action_open"
+        android:showAsAction="ifRoom|withText"/>
+    <item
+        android:id="@+id/action_speakers"
+        android:icon="@drawable/ic_action_person"
+        android:title="@string/action_speakers"
+        android:showAsAction="ifRoom|withText"/>
+    <item
+        android:id="@+id/action_sessions"
+        android:icon="@drawable/ic_action_event"
+        android:title="@string/action_sessions"
+        android:showAsAction="ifRoom|withText"/>
+</menu>
