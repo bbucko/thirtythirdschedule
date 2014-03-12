@@ -7,6 +7,15 @@
     <uses-sdk
         android:minSdkVersion="16"
         android:targetSdkVersion="19"/>
+
+    <uses-permission android:name="android.permission.INTERNET"/>
+    <uses-permission android:name="com.google.android.c2dm.permission.RECEIVE"/>
+    <uses-permission android:name="com.example.gcm.permission.C2D_MESSAGE"/>
+
+    <permission
+        android:name="com.example.gcm.permission.C2D_MESSAGE"
+        android:protectionLevel="signature"/>
+
     <application
         android:hardwareAccelerated="true"
         android:theme="@android:style/Theme.Holo.Light"
@@ -29,6 +38,7 @@
         </activity>
 
         <receiver
+            android:enabled="true"
             android:name=".gcm.ScheduleGCMService"
             android:permission="com.google.android.c2dm.permission.SEND">
             <intent-filter>
@@ -37,6 +47,7 @@
             </intent-filter>
         </receiver>
 
-        <service android:name=".service.ScheduleService"/>
+        <service android:name=".service.GCMReceiverService"/>
+        <service android:name=".service.RESTService"/>
     </application>
 </manifest>

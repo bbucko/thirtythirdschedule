@@ -10,12 +10,12 @@ import com.google.android.gms.gcm.GoogleCloudMessaging;
 
 import pl.iogreen.thirtythree.schedule.gcm.ScheduleGCMService;
 
-public class ScheduleService extends IntentService {
+public class GCMReceiverService extends IntentService {
 
-    private static final String TAG = ScheduleService.class.getSimpleName();
+    private static final String TAG = GCMReceiverService.class.getSimpleName();
 
-    public ScheduleService() {
-        super("ScheduleService");
+    public GCMReceiverService() {
+        super("GCMReceiverService");
     }
 
     @Override
@@ -46,7 +46,7 @@ public class ScheduleService extends IntentService {
 
     @Override
     public int onStartCommand(Intent intent, int flags, int startId) {
-        Toast.makeText(this, "ScheduleService starting", Toast.LENGTH_SHORT).show();
+        Toast.makeText(this, "GCMReceiverService starting", Toast.LENGTH_SHORT).show();
         return super.onStartCommand(intent, flags, startId);
     }
 }

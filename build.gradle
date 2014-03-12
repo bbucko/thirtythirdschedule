@@ -1,5 +1,7 @@
+def versionName() { '0.0.1-SNAPSHOT' }
+
 group = 'pl.iogreen.thirtythree.schedule'
-version = '0.0.1-SNAPSHOT'
+version = versionName()
 project.ext['src.java.dir'] = ['src/test/java']
 project.ext['module.iml.file'] = "33Schedule.iml"
 
@@ -40,14 +42,16 @@ android {
         minSdkVersion 16
         targetSdkVersion 19
         versionCode 1
-        versionName '0.0.1-SNAPSHOT'
+        versionName versionName()
         testInstrumentationRunner 'com.google.android.apps.common.testing.testrunner.GoogleInstrumentationTestRunner'
     }
 
     buildTypes {
         release {
+//            runProguard true
             runProguard false
-            proguardFile getDefaultProguardFile('proguard-android.txt')
+//            proguardFile getDefaultProguardFile('proguard-android.txt')
+            proguardFile 'proguard-project.txt'
         }
     }
 
@@ -67,6 +71,12 @@ android {
         sourceCompatibility JavaVersion.VERSION_1_7
         targetCompatibility JavaVersion.VERSION_1_7
     }
+
+//    dexOptions {
+//        incremental false
+//        preDexLibraries = false
+//        jumboMode = false
+//    }
 }
 
 androidTest {
@@ -82,6 +92,7 @@ dependencies {
         }
     }
 
+    compile 'com.mcxiaoke.volley:library:1.0.+@aar'
     compile('org.roboguice:roboguice:3.0b-experimental') {
         exclude module: 'asm'
     }

@@ -19,6 +19,7 @@ import java.util.List;
 import pl.iogreen.thirtythree.schedule.R;
 import pl.iogreen.thirtythree.schedule.db.ScheduleDBHelper;
 import pl.iogreen.thirtythree.schedule.model.Schedule;
+import pl.iogreen.thirtythree.schedule.service.RESTService;
 import roboguice.inject.ContentView;
 import roboguice.inject.InjectView;
 
@@ -33,6 +34,7 @@ public class WelcomeActivity extends BaseActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        startService(new Intent(this, RESTService.class));
         new ScheduleDBHelper(getApplicationContext());
         schedules.add(new Schedule(1, "Room #1", "Session Name #1", new Date()));
         schedules.add(new Schedule(2, "Room #2", "Session Name #2", new Date()));
