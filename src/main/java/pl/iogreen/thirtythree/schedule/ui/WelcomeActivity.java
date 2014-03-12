@@ -11,14 +11,13 @@ import android.widget.BaseAdapter;
 import android.widget.ListView;
 import android.widget.TextView;
 
-import org.jetbrains.annotations.Nullable;
-
 import java.text.DateFormat;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 
 import pl.iogreen.thirtythree.schedule.R;
+import pl.iogreen.thirtythree.schedule.db.ScheduleDBHelper;
 import pl.iogreen.thirtythree.schedule.model.Schedule;
 import roboguice.inject.ContentView;
 import roboguice.inject.InjectView;
@@ -34,7 +33,7 @@ public class WelcomeActivity extends BaseActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-
+        new ScheduleDBHelper(getApplicationContext());
         schedules.add(new Schedule(1, "Room #1", "Session Name #1", new Date()));
         schedules.add(new Schedule(2, "Room #2", "Session Name #2", new Date()));
         schedules.add(new Schedule(3, "Room #3", "Session Name #3", new Date()));
@@ -56,7 +55,6 @@ public class WelcomeActivity extends BaseActivity {
                 return schedules.get(position).getId();
             }
 
-            @Nullable
             @Override
             public View getView(int position, View convertView, ViewGroup parent) {
                 final Schedule schedule = schedules.get(position);

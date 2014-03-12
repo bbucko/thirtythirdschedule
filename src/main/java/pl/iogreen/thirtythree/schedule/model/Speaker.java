@@ -4,8 +4,6 @@ import android.graphics.Bitmap;
 import android.os.Parcel;
 import android.os.Parcelable;
 
-import org.jetbrains.annotations.Nullable;
-
 public class Speaker implements Parcelable {
 
     private final String description;
@@ -56,7 +54,6 @@ public class Speaker implements Parcelable {
 
     public static final Creator<Speaker> CREATOR = new Creator<Speaker>() {
 
-        @Nullable
         @Override
         public Speaker createFromParcel(Parcel out) {
             final String name = out.readString();

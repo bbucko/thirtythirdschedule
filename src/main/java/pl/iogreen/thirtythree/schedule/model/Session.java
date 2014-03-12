@@ -4,8 +4,6 @@ package pl.iogreen.thirtythree.schedule.model;
 import android.os.Parcel;
 import android.os.Parcelable;
 
-import org.jetbrains.annotations.Nullable;
-
 import java.util.Date;
 
 public class Session implements Parcelable {
@@ -52,7 +50,6 @@ public class Session implements Parcelable {
     }
 
     public static final Creator<Session> CREATOR = new Creator<Session>() {
-        @Nullable
         @Override
         public Session createFromParcel(Parcel out) {
             Speaker speaker = null;

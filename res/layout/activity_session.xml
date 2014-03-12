@@ -8,11 +8,11 @@
 
     <FrameLayout
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_weight="0.16"
+        android:layout_height="0dp"
         android:background="@drawable/grey_background"
         android:paddingBottom="2dp"
-        android:padding="2dp">
+        android:padding="2dp"
+        android:layout_weight="0.33">
 
         <TextView
             android:layout_width="wrap_content"
@@ -33,14 +33,6 @@
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:textAppearance="?android:attr/textAppearanceMedium"
-            android:text="Speaker Name"
-            android:id="@+id/speaker_name"
-            android:layout_gravity="left|center_vertical"/>
-
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
             android:textAppearance="?android:attr/textAppearanceLarge"
             android:text="Session Name"
             android:id="@+id/session_name"
@@ -49,10 +41,26 @@
 
     <TextView
         android:layout_width="fill_parent"
-        android:layout_height="wrap_content"
+        android:layout_height="0dp"
         android:text="Session Description"
         android:id="@+id/session_description"
         android:layout_gravity="left|top"
-        android:padding="5dp"/>
+        android:padding="5dp"
+        android:layout_weight="0.33"/>
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textAppearance="?android:attr/textAppearanceLarge"
+        android:text="Speakers"
+        android:id="@+id/textView"
+        android:layout_gravity="center_horizontal"/>
+
+    <ListView
+        android:layout_width="match_parent"
+        android:layout_height="248dp"
+        android:id="@+id/speakers"
+        android:layout_gravity="center_horizontal|bottom"
+        android:choiceMode="singleChoice"/>
 
 </LinearLayout>

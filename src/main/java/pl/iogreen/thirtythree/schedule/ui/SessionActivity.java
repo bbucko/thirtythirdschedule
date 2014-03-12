@@ -1,6 +1,7 @@
 package pl.iogreen.thirtythree.schedule.ui;
 
 import android.os.Bundle;
+import android.widget.ListView;
 import android.widget.TextView;
 
 import java.text.DateFormat;
@@ -19,9 +20,6 @@ public class SessionActivity extends BaseActivity {
     @InjectView(R.id.session_name)
     private TextView sessionName;
 
-    @InjectView(R.id.speaker_name)
-    private TextView speakerName;
-
     @InjectView(R.id.session_room)
     private TextView sessionRoom;
 
@@ -30,6 +28,9 @@ public class SessionActivity extends BaseActivity {
 
     @InjectView(R.id.session_description)
     private TextView sessionDescription;
+
+    @InjectView(R.id.speakers)
+    private ListView speakersList;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -47,8 +48,5 @@ public class SessionActivity extends BaseActivity {
         sessionDescription.setText(session.getDescription());
         sessionStart.setText(DateFormat.getTimeInstance(DateFormat.SHORT).format(session.getStart()));
         sessionRoom.setText("Session Room //FIXME");
-
-        speakerName.setText("Speaker //FIXME");
-
     }
 }
