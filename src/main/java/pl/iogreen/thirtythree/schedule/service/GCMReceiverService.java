@@ -23,6 +23,7 @@ public class GCMReceiverService extends IntentService {
         final Bundle extras = intent.getExtras();
         final GoogleCloudMessaging gcm = GoogleCloudMessaging.getInstance(this);
 
+
         final String messageType = gcm.getMessageType(intent);
 
         if (!extras.isEmpty()) {
@@ -40,7 +41,7 @@ public class GCMReceiverService extends IntentService {
                     break;
             }
         }
-        // Release the wake lock provided by the WakefulBroadcastReceiver.
+
         ScheduleGCMService.completeWakefulIntent(intent);
     }
 

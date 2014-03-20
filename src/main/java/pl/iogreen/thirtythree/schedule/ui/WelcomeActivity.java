@@ -36,6 +36,8 @@ public class WelcomeActivity extends BaseActivity {
         super.onCreate(savedInstanceState);
         startService(new Intent(this, RESTService.class));
         new ScheduleDBHelper(getApplicationContext());
+
+
         schedules.add(new Schedule(1, "Room #1", "Session Name #1", new Date()));
         schedules.add(new Schedule(2, "Room #2", "Session Name #2", new Date()));
         schedules.add(new Schedule(3, "Room #3", "Session Name #3", new Date()));

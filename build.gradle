@@ -12,7 +12,7 @@ buildscript {
     }
     dependencies {
         classpath 'com.android.tools.build:gradle:0.9.+'
-        classpath 'org.robolectric.gradle:gradle-android-test-plugin:0.9.3-SNAPSHOT'
+        classpath 'org.robolectric.gradle:gradle-android-test-plugin:0.9.4-SNAPSHOT'
     }
 }
 
@@ -49,9 +49,9 @@ android {
     buildTypes {
         release {
 //            runProguard true
-            runProguard false
+//            proguardFile 'proguard-project.txt'
 //            proguardFile getDefaultProguardFile('proguard-android.txt')
-            proguardFile 'proguard-project.txt'
+            runProguard false
         }
     }
 
@@ -71,12 +71,6 @@ android {
         sourceCompatibility JavaVersion.VERSION_1_7
         targetCompatibility JavaVersion.VERSION_1_7
     }
-
-//    dexOptions {
-//        incremental false
-//        preDexLibraries = false
-//        jumboMode = false
-//    }
 }
 
 androidTest {
@@ -92,6 +86,8 @@ dependencies {
         }
     }
 
+    //Compile dependencies
+    compile 'com.google.guava:guava:16.0.1'
     compile 'com.mcxiaoke.volley:library:1.0.+@aar'
     compile('org.roboguice:roboguice:3.0b-experimental') {
         exclude module: 'asm'
@@ -99,6 +95,7 @@ dependencies {
     compile 'com.android.support:support-v13:19.0.+'
     compile 'com.google.android.gms:play-services:4.2.+'
 
+    //Test dependencies
     testCompile('junit:junit:4.+') {
         exclude module: 'hamcrest-core'
     }
@@ -124,11 +121,9 @@ dependencies {
     testCompile 'com.squareup:fest-android:1.0.+'
     testCompile 'org.mockito:mockito-core:1.9.+'
 
-
+    //Android Test dependencies
     androidTestCompile files('lib/espresso-1.1.jar', 'lib/testrunner-1.1.jar', 'lib/testrunner-runtime-1.1.jar')
-    androidTestCompile 'com.google.guava:guava:14.0.1',
-            'com.squareup.dagger:dagger:1.1.0',
-            'org.hamcrest:hamcrest-core:1.1',
+    androidTestCompile 'org.hamcrest:hamcrest-core:1.1',
             'org.hamcrest:hamcrest-integration:1.1',
             'org.hamcrest:hamcrest-library:1.1'
     androidTestCompile('junit:junit:4.+') {
